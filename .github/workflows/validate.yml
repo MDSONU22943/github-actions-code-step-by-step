@@ -1,0 +1,19 @@
+name: Validate File
+on: push
+jobs:
+  file-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: get repo code on VM
+      uses: actions/checkout@v3
+
+    - name: validate html file
+      run: test -f index.html
+
+    - name: validate css file
+      run: test -f style.css
+
+    - name: validate js file
+      run: test -f script.js
+
