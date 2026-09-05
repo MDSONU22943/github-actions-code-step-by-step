@@ -17,3 +17,6 @@ jobs:
     - name: validate js file
       run: test -f script.js
 
+    - name: validate readme file
+      run: test -f README.md
+
