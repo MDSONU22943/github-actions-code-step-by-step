@@ -1,0 +1,29 @@
+name: Jobs Test
+on: push
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: echo "Running tests..."
+      - name: Validate HTML file
+        run: test -f index.html
+
+  validate-js:
+    needs: validate-html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate JavaScript file
+        run: test -f script.js
+  validate-css:
+    needs: validate-js
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Validate CSS file
+        run: test -f style.css
