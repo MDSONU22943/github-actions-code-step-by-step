@@ -14,11 +14,14 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
+          cache-dependency-path: ./react-github-actions/package-lock.json
 
       # Step 3: Dependencies install karna (runs ki jagah run aayega)
       - name: install dependencies
         run: npm ci
+        working-directory: ./react-github-actions
 
       # Step 4: React build banana
       - name: make react build
         run: npm run build
+        working-directory: ./react-github-actions
