@@ -1,0 +1,24 @@
+name: "first workflow"
+on: push
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Code checkout karna
+      - name: checkout
+        uses: actions/checkout@v4
+
+      # Step 2: Node.js setup karna aur cache enable karna
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      # Step 3: Dependencies install karna (runs ki jagah run aayega)
+      - name: install dependencies
+        run: npm ci
+
+      # Step 4: React build banana
+      - name: make react build
+        run: npm run build
